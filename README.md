@@ -6,7 +6,7 @@
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fnear-examples%2Fdonation-js%2Fbadge&style=flat&label=Tests)](https://actions-badge.atrox.dev/near-examples/donation-js/goto)
 
 
-Our Donation example enables to forward money to an account while keeping track of it. It is one of the simplest examples on making a contract receive and send money.
+Our Donation example enables to forward money to an account while keeping track of it. It is one of the simplest examples on making a contract receive and send money with next wallet.
 
 ![](https://docs.near.org/assets/images/donation-7cf65e5e131274fd1ae9aa34bc465bb8.png)
 
