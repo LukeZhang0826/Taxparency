@@ -15,7 +15,10 @@
     "postinstall": "cd frontend && npm install && cd .. && cd integration-tests && npm install && cd .. && cd contract && npm install"
   },
   "devDependencies": {
-    "near-cli": "^3.3.0"
+    "near-cli": "^1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "docspring": "^1.4.0",
+    "sqlite-sync": "^0.3.7"
+  }
 }

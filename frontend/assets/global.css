@@ -2,15 +2,17 @@
   box-sizing: border-box;
 }
 
+html, body {margin: 0; height: 100%; overflow: hidden}
+
 html {
-  --bg: #e7f3ff;
+  --bg: #062552;
   --fg: #1e1e1e;
   --gray: #555;
   --light-gray: #ccc;
   --shadow: #e6e6e6;
   --success: rgb(90, 206, 132);
-  --primary: #FF585D;
-  --secondary: #0072CE;
+  --primary: #085FD7;
+  --secondary: #478ec8;
 
   color: var(--fg);
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -20,13 +22,44 @@ html {
 body {
   margin: 0;
   background-color: var(--bg);
+  color: #eee;
 }
 
-.donation-box {
-  max-width: 24em;
-  box-shadow: #bac4cd 0px 0px 18px;
-  border-radius: 8px;
+h1 {
+  color: -webkit-linear-gradient(#2D328A, #5EC8D9);
 }
+
+.bg {
+  position: absolute;
+  max-width: 1000px;
+  max-height: 800px;
+  z-index: -1;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #040E33EE;
+
+  padding: 10px 30px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 
 .column{
   width: 50%;
@@ -41,6 +74,24 @@ main {
   border-radius: 8px;
 }
 
+.ptop5 {
+  padding-top: 10px;
+}
+
+.pbot5 {
+  padding-bottom: 10px;
+}
+
+.pright5 {
+  padding-right: 100px;
+}
+
+.mtop5 {
+  margin-top: 30px;
+}
+
+
+
 .donation-box-head {
   text-align: center;
   background-color: #fff;
@@ -48,6 +99,20 @@ main {
   border-radius: 8px 8px 0 0;
   padding: 1em 0em 2em 0em;
 }
+
+.field2 {
+ margin: 20px;
+ padding: 30px;
+ background-color: #040E33EE;
+ border-radius: 30px;
+}
+
+.field1 {
+  margin: 20px;
+  padding: 20px;
+  background-color: #040E33EE;
+  border-radius: 30px;
+ }
 
 .logo {
   background-image: url(logo-black.svg);
@@ -73,7 +138,7 @@ a:hover,
 a:focus,
 .link:hover,
 .link:focus {
-  text-decoration: underline;
+  background-color: var(--secondary);
 }
 a:active,
 .link:active {
@@ -91,11 +156,54 @@ button, input {
 
 
 button.link {
-  background: none;
+  background-color: #085FD7;
+  padding: 10px 20px;
+  color: #eee;
   border: none;
   box-shadow: none;
-  display: inline;
+  border-radius: 7px;
+  margin-top: 5px;
 }
+
+.goback {
+  position:absolute;
+  background-color: #085FD7;
+  color: #eee;
+  border: none;
+  box-shadow: none;
+  border-radius: 7px;
+  margin-left: 20px;
+}
+
+.goindex {
+  background-color: #085FD7;
+  color: #eee;
+  padding: 5px 20px;
+  border: none;
+  box-shadow: none;
+  border-radius: 7px;
+}
+
+.gotax {
+  background-color: #085FD7;
+  color: #eee;
+  padding: 5px 20px;
+  border: none;
+  box-shadow: none;
+  border-radius: 7px;
+  margin-left: 20px;
+}
+
+.taxslip {
+  background-color: #085FD7;
+  color: #eee;
+  padding: 5px 20px;
+  border: none;
+  box-shadow: none;
+  border-radius: 7px;
+}
+
+
 
 fieldset {
   border: none;
@@ -130,6 +238,7 @@ aside footer *:first-child {
 aside footer *:last-child {
   color: var(--gray);
 }
+
 @keyframes notify {
   0% { transform: translateY(10em) }
   5% { transform: translateY(0) }

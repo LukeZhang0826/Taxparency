@@ -1,7 +1,44 @@
 import 'regenerator-runtime/runtime'
 import { Contract } from './near-interface';
 import { Wallet } from './near-wallet'
+// Find your API tokens here: https://app.docspring.com/api_tokens
 
+import DocSpring from 'docspring'
+
+var config = new DocSpring.Configuration()
+config.apiTokenId = 'DOCSPRING_API_TOKEN_ID'
+config.apiTokenSecret = 'DOCSPRING_API_TOKEN_SECRET'
+docspring = new DocSpring.Client(config)
+
+var template_id = 'tpl_000000000000000001'
+var submission_data = {
+  editable: false,
+  data: {
+    first_name: 'John',
+    last_name: 'Smith',
+    phone_number: "+11234567890"
+  },
+  metadata: {
+    user_id: 123,
+  },
+  field_overrides: {
+    phone_number: {
+      required: false,
+    },
+  },
+  wait: true,
+}
+docspring.generatePDF(template_id, submission_data, function (
+  error,
+  response
+) {
+  if (error) {
+    console.log(response, error)
+    throw error
+  }
+  var submission = response.submission
+  console.log('Download your PDF at:', submission.download_url)
+})
 // When creating the wallet you can choose to create an access key, so the user
 // can skip signing non-payable methods when interacting with the contract
 const wallet = new Wallet({ createAccessKeyFor: process.env.CONTRACT_NAME })
@@ -78,7 +115,7 @@ async function signedInFlow() {
   if(txhash !== null){
     // Get result from the transaction
     let result = await contract.getDonationFromTransaction(txhash)
-    document.querySelector('[data-behavior=donation-so-far]').innerText = result
+    document.querySelector('[data-behavior=donation-so-far]').innerText = result;
 
     // show notification
     document.querySelector('[data-behavior=notification]').style.display = 'block'
@@ -108,6 +145,7 @@ async function getAndShowDonations(){
       </tr>
     `
     document.getElementById('donations-table').appendChild(tr)
+    document.getElementById('incomeInfo').innerHTML = `<p>Income: $${Math.round(100*elem.total_amount * 1.67)/100} </p><p>Taxable Income: $${Math.round(elem.total_amount * 1.67 * 0.1 * 100)/100}</p>`;
   })
 }
 
